@@ -1,8 +1,8 @@
-name: Draw koi
+name: Generate GitHub Koi Aquarium
 
 on:
   schedule:
-    - cron: '15 0 * * *'
+    - cron: '20 0 * * *'
   workflow_dispatch:
   push:
     paths:
@@ -12,21 +12,19 @@ permissions:
   contents: write
 
 jobs:
-  koi:
+  aquarium:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - uses: yalongwastaken/git-koi@v1
+      - uses: reginaldalfret/git-koi-aquarium@v1
         with:
-          body: white
-
-      - name: Commit koi if changed
+          body: aquarium
+      - name: Commit aquarium
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@://github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add koi
           if ! git diff --cached --quiet; then
-            git commit -m "koi: draw the day's koi"
+            git commit -m "koi: update aquarium"
             git push
           fi
