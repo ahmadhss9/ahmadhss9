@@ -1,0 +1,32 @@
+name: Draw koi
+
+on:
+  schedule:
+    - cron: '15 0 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/koi.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  koi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: yalongwastaken/git-koi@v1
+        with:
+          body: white
+
+      - name: Commit koi if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@://github.com"
+          git add koi
+          if ! git diff --cached --quiet; then
+            git commit -m "koi: draw the day's koi"
+            git push
+          fi
