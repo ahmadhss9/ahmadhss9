@@ -1,11 +1,8 @@
 <p align="center">
-  <img src="koi/koi.gif" width="400" alt="My koi" />
+  <img src="koi/koi.gif" width="200" alt="My koi" />
 </p>
 
 ## My Contribution Graph
-
-## My Contribution Graph
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ahmadhss9/ahmadhss9/output/pacman-contribution-graph-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ahmadhss9/ahmadhss9/output/pacman-contribution-graph.svg">
